@@ -23,19 +23,31 @@ class MainActivity : AppCompatActivity() {
         val year = myCalendar.get(Calendar.YEAR)
         val month = myCalendar.get(Calendar.MONTH)
         val day = myCalendar.get(Calendar.DAY_OF_MONTH)
-        DatePickerDialog(this, {
-                _, Selectedyear, Selectedmonth, SelecteddayOfMonth ->
-            val selectedDate = "$SelecteddayOfMonth/ ${Selectedmonth+1}/ $Selectedyear"
+        val dpd = DatePickerDialog(
+            this, { _, Selectedyear, Selectedmonth, SelecteddayOfMonth ->
+                val selectedDate = "$SelecteddayOfMonth/ ${Selectedmonth + 1}/ $Selectedyear"
 
-            tvSelectedDate.text = selectedDate
+                tvSelectedDate.text = selectedDate
 
-           val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+                val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
 
-            val theDate = sdf.parse(selectedDate)
-        }
-            ,year
-            ,month,
-            day).show()
+                val theDate = sdf.parse(selectedDate)
+
+                val selectedDateInMinutes = theDate!!.time / 60000
+
+                val currentDate = sdf.parse(sdf.format(System.currentTimeMillis()))
+                val currentDateInMinutes = currentDate!!.time / 60000
+
+                val DifferenceInMinutes = currentDateInMinutes - selectedDateInMinutes
+
+                tvSelectedDateInMinute.text = DifferenceInMinutes.toString()
+
+
+            }, year, month,
+            day
+        )
+        dpd.datePicker.maxDate = Date().time - 86400000
+        dpd.show()
     }
 
 }
