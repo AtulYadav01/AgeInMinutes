@@ -24,12 +24,14 @@ class MainActivity : AppCompatActivity() {
         val month = myCalendar.get(Calendar.MONTH)
         val day = myCalendar.get(Calendar.DAY_OF_MONTH)
         DatePickerDialog(this, {
-                view, Selectedyear, Selectedmonth, SelecteddayOfMonth ->
-            val SelectedDate = "$SelecteddayOfMonth/ ${Selectedmonth+1}/ $Selectedyear"
+                _, Selectedyear, Selectedmonth, SelecteddayOfMonth ->
+            val selectedDate = "$SelecteddayOfMonth/ ${Selectedmonth+1}/ $Selectedyear"
 
-            tvSelectedDate.setText(SelectedDate)
+            tvSelectedDate.text = selectedDate
 
-            val sdf = SimpleDateFormat("dd/MM/yyyy")
+           val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH)
+
+            val theDate = sdf.parse(selectedDate)
         }
             ,year
             ,month,
