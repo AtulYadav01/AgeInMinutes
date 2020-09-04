@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundcolor"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@color/backgroundcolor"
     android:padding="16dp"
     tools:context=".MainActivity">
 
@@ -22,10 +22,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/age"
-        android:textColor="#FFFFFF"
         android:background="@color/agetextbackcolor"
         android:padding="10dp"
+        android:text="@string/age"
+        android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold" />
 
@@ -42,12 +42,12 @@
         android:id="@+id/btndatepicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/select_date"
         android:layout_marginTop="15dp"
         android:background="#FFFFFF"
-        android:textStyle="bold"
+        android:text="@string/select_date"
+        android:textColor="#929292"
         android:textSize="20sp"
-        android:textColor="#929292" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tvSelectedDate"
@@ -60,8 +60,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/selected_date"
         android:layout_marginTop="20sp"
+        android:text="@string/selected_date"
         android:textColor="#B7B7B7"
         android:textSize="18sp" />
 

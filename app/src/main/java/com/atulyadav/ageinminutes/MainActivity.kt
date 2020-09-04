@@ -2,7 +2,6 @@ package com.atulyadav.ageinminutes
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
@@ -13,12 +12,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btndatepicker.setOnClickListener {view ->
-            clickDatePicker(view)
-           }
+        btndatepicker.setOnClickListener {
+            clickDatePicker()
+        }
     }
 
-    fun clickDatePicker(view : View) {
+    private fun clickDatePicker() {
         val myCalendar = Calendar.getInstance()
         val year = myCalendar.get(Calendar.YEAR)
         val month = myCalendar.get(Calendar.MONTH)
